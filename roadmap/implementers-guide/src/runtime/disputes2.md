@@ -35,11 +35,11 @@ If the disputed block was already finalized, the block must be put in governance
 
 Now there might be the case that the network is fragmented for a limited amount of time. If the dispute would happen
 during this time, a block could be disputed, that we have never seen being part of any chain, but we might get
-a vote for it. That is tagged a "remote" dispute.
+a vote for it. That is called a "remote" dispute.
 
-> Can we verify the disputed block? I don't think so.
-
-> 
+As such the validator has to keep track of all votes irrespective if the disputed block is already known or not.
+All backing votes should be either kept in storage as well, or be queried on demand, since they are a kind of vote
+as well.
 
 ## Late votes
 
