@@ -6,13 +6,18 @@ If the transaction can be verified the defined verification code, it is good. If
 about a block, which was either detected during the backing stage by a backing checker
 or, made it through the backing stage, but was then found invalid by an approval checker.
 
+(If there was no conflict between votes, but nobody backed the block in the first place, it is TBD if that falls in the category of a dispute or not)
+
 At this point the validator set can not be trusted (since they voted for the block despite something being
-fishy at the very least) or the validator that blew the whistle has ulterior motives to do so.
+fishy at the very least) or the validator that blew the whistle has ulterior motives to do so (i.e. it is controlled by a third party and wants to incur damage to itself).
 In either way, there are malicious validators around.
 As a consequence, all validators at the time of block backing, are being notified via broadcast of
 the first challenging vote.
-Validators that backed the candidate implicitly voted for backing the candidate and may not vote a second time.
-That would be equal to an attempted double vote and would be slashed accordingly.
+Validators that backed the candidate implicitly voted for backing the candidate and may not vote a second time in different fashion, i.e. a pro and a con vote would be punished, two positive votes would be fine, but the first would be counted.
+Two opposing votes by the same validator would be equal to an attempted double vote and would be slashed accordingly.
+
+All validators at block inclusion time are eligible to (and should) cast their Vote. The backing votes of backing checkers
+are counted as votes as well.
 
 ## Initiation
 
@@ -41,7 +46,7 @@ as well.
 
 ## Late votes
 
-Late votes, after the dispute already reached a quorum + super majority , must be rewarded (albeit a smaller amount) as well.
+Late votes, after the dispute already reached a quorum + super majority, must be rewarded (albeit a smaller amount) as well.
 These ones must be attached to the votes after a defined period of time after the result has reached
 the required quorum + supermajority.
 
