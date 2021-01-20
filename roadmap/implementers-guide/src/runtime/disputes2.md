@@ -24,7 +24,7 @@ are counted as votes as well.
 A dispute is initiated by one approval checker creating and gossiping a vote, that challenges the vote.
 approval checkers run the validation code and use this to verify the transactions.
 
-After a approval checker challenged a block, all validators that received the gossiped vote, reconstruct the block
+After an approval checker challenged a block, all validators that received the gossiped vote, reconstruct the block
 from availability erasure code chunks and check the block themselves via the validation code.
 The result of that check is converted into a vote, and distributed via the same mechanics as the first one.
 
