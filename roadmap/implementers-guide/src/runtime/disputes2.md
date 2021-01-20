@@ -32,7 +32,7 @@ Once a receiver receives quorum and supermajority in one or the other direction,
 vote is concluded.
 Conclusion implies that the result for this block can not be altered anymore, valid or invalid is fixed now.
 
-In order to assure, the dispute result is not forgotten or intentionally side stepped, it has to be recorded on chain.
+In order to ensure, the dispute result is not forgotten or intentionally side stepped, it has to be recorded on chain.
 This on chain recording mechanic must be vigilant, in a sense, that new emerging forks
 must also receive the dispute resolution recorded (transplantation) iff the disputed block is in the
 ancestry path of that chain.
