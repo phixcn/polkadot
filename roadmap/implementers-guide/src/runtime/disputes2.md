@@ -2,18 +2,22 @@
 
 ## Motivation
 
-If the transaction can be verified the defined verification code, it is good. If not, there is a dispute
-about a block, which was either detected during the backing stage by a backing checker
-or, made it through the backing stage, but was then found invalid by an approval checker.
+A reconstructed PoV can be verified with the defined verification code, that is valid during the session the block was included.
+If the block is invalid and there exists at least one backing vote and one disputing vote, a dispute exists,
+which was either detected during the backing stage by a backing checker
+or, made it through the backing stage, but was then found invalid by an approval checker which
+propagate his vote.
 
-(If there was no conflict between votes, but nobody backed the block in the first place, it is TBD if that falls in the category of a dispute or not)
-
-At this point the validator set can not be trusted (since they voted for the block despite something being
-fishy at the very least) or the validator that blew the whistle has ulterior motives to do so (i.e. it is controlled by a third party and wants to incur damage to itself).
+At this point the set of backing validators can not be trusted (since they voted for the block despite something being
+fishy at the very least). On the other hand, one must also consider, the validator that blew the whistle has ulterior motives
+to do so (i.e. it is controlled by a third party and wants to incur damage to itself).
 In either way, there are malicious validators around.
 As a consequence, all validators at the time of block backing, are being notified via broadcast of
 the first challenging vote.
-Validators that backed the candidate implicitly voted for backing the candidate and may not vote a second time in different fashion, i.e. a pro and a con vote would be punished, two positive votes would be fine, but the first would be counted.
+Validators that backed the candidate implicitly count as votes. Those validators are allowed to cast
+a regular vote (a non-backing vote) as well, but it is generally not in their interest to vote both sides, since that would
+advance the progress towards super majority either way and have their bonds slashed.
+If both votes lean in the same direction, i.e. both positive they are only counted as one.
 Two opposing votes by the same validator would be equal to an attempted double vote and would be slashed accordingly.
 
 All validators at block inclusion time are eligible to (and should) cast their Vote. The backing votes of backing checkers
@@ -55,3 +59,6 @@ the required quorum + supermajority.
 Chain selection should be influenced by the chance of picking a chain that does not even include the disputed block.
 Hence removing the need to include the dispute resolution itself.
 This is only possible though, if the set of active heads contains such a fork.
+In Grandpa the Voting rule should be used to avoid finalizing chains that contain an open or negative shut (shut with super majority that marks the block as invalid) dispute.
+In case all possible chains contains such a dispute, a TBD metric must be used to decide which fork to use or avoid finalization until one dispute resolves positive (the
+block is valid).
