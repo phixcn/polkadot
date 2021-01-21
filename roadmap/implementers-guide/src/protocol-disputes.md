@@ -35,7 +35,7 @@ are counted as votes as well.
 
 ## Initiation
 
-A dispute is initiated by one approval checker creating and gossiping a vote, that challenges the vote.
+A dispute is initiated by one approval checker creating and gossiping a vote, that challenges another vote.
 approval checkers run the validation code and use this to verify the transactions.
 
 After an approval checker challenged a block, all validators that received the gossiped vote, reconstruct the block
