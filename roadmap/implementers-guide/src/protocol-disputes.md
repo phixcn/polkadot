@@ -36,10 +36,9 @@ are counted as votes as well.
 ## Initiation
 
 A dispute is initiated by one approval checker creating and gossiping a vote, that challenges another vote.
-approval checkers run the validation code and use this to verify the transactions.
 
-After an approval checker challenged a block, all validators that received the gossiped vote, reconstruct the block
-from availability erasure code chunks and check the block themselves via the validation code.
+After a backing or approval checker challenged a block, all validators that received the gossiped vote, reconstruct the block
+from availability erasure code chunks and check the block's PoV themselves via the validation code.
 The result of that check is converted into a vote, and distributed via the same mechanics as the first one.
 
 Once a receiver receives quorum and supermajority in one or the other direction, the
@@ -48,10 +47,9 @@ Conclusion implies that the result for this block can not be altered anymore, va
 
 In order to ensure, the dispute result is not forgotten or intentionally side stepped, it has to be recorded on chain.
 This on chain recording mechanic must be vigilant, in a sense, that new emerging forks
-must also receive the dispute resolution recorded (transplantation) iff the disputed block is in the
-ancestry path of that chain.
+must also receive the dispute resolution recorded (transplantation) irrespectively of the disputed block being included in that chain or not.
 
-If the disputed block was already finalized, the block must be put in governance mode to be resolved be by hand
+If the disputed block was already finalized, the chain must be put in governance mode to be resolved by human interaction
 (i.e. sudo or motion or other mechanics that are available ).
 
 As such the validator has to keep track of all votes irrespective if the disputed block is already known or not.
