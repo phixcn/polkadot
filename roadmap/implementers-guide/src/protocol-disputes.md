@@ -9,7 +9,7 @@ a block that is invalid in respect to the validation code, must therefore be han
 
 At some point a validator claims that the `PoV` (proof of validity) - which was distributed with candidate block - for a certain block is invalid.
 
-Now the dispute can be happening quite some time later than the inclusion, but also right during backing. As such the block is stored or more so it's solomon-reed encoded erasure chunks, from which the
+Now the dispute can be happening quite some time later than the inclusion, but also right during backing. As such the block is stored or more so its Reed-Solomon encoded erasure chunks, from which the
 PoV can be reconstructed.
 
 A reconstructed PoV can be verified with the defined verification code, that is valid during the session the block was included or backed.
