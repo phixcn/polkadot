@@ -2,11 +2,21 @@
 
 ## Motivation
 
-A reconstructed PoV can be verified with the defined verification code, that is valid during the session the block was included.
-If the block is invalid and there exists at least one backing vote and one disputing vote, a dispute exists,
-which was either detected during the backing stage by a backing checker
-or, made it through the backing stage, but was then found invalid by an approval checker which
-propagate his vote.
+All blocks that end up on chain should be valid.
+
+To assure attempts, successful or not, of including
+a block that is invalid in respect to the validation code, must therefore be handled in some way, disputes and their resolution are the formal process to resolve these situations.
+
+At some point a validator claims that the `PoV` (proof of validity) - which was distributed with candidate block - for a certain block is invalid.
+
+Now the dispute can be happening quite some time later than the inclusion, but also right during backing. As such the block is stored or more so it's solomon-reed encoded erasure chunks, from which the
+PoV can be reconstructed.
+
+A reconstructed PoV can be verified with the defined verification code, that is valid during the session the block was included or backed.
+If the block is invalid and there exists at least one backing vote and one validity challenging vote, a dispute exists.
+The existance of a dispute is detected by a backing checker
+or, if the block made it through backing stage, by an approval checker.
+In either case, the validator casts and distributes its vote via means of gossip.
 
 At this point the set of backing validators can not be trusted (since they voted for the block despite something being
 fishy at the very least). On the other hand, one must also consider, the validator that blew the whistle has ulterior motives
