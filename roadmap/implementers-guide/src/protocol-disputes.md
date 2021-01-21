@@ -4,7 +4,7 @@
 
 All blocks that end up on chain should be valid.
 
-To assure attempts, successful or not, of including
+To ensure attempts, successful or not, of including
 a block that is invalid in respect to the validation code, must therefore be handled in some way, disputes and their resolution are the formal process to resolve these situations.
 
 At some point a validator claims that the `PoV` (proof of validity) - which was distributed with candidate block - for a certain block is invalid.
