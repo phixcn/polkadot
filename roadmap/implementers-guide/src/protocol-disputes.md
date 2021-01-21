@@ -14,7 +14,7 @@ PoV can be reconstructed.
 
 A reconstructed PoV can be verified with the defined verification code, that is valid during the session the block was included or backed.
 If the block is invalid and there exists at least one backing vote and one validity challenging vote, a dispute exists.
-The existance of a dispute is detected by a backing checker
+The existence of a dispute is detected by a backing checker
 or, if the block made it through backing stage, by an approval checker.
 In either case, the validator casts and distributes its vote via means of gossip.
 
