@@ -41,7 +41,7 @@ After a backing or approval checker challenged a block, all validators that rece
 from availability erasure code chunks and check the block's PoV themselves via the validation code.
 The result of that check is converted into a vote, and distributed via the same mechanics as the first one.
 
-Once a receiver receives qualified supermajority in one or the other direction, the
+Once a receiver receives ⅔ supermajority in one or the other direction, the
 vote is concluded.
 Conclusion implies that the result for this block can not be altered anymore, valid or invalid is fixed now.
 
@@ -58,9 +58,9 @@ as well.
 
 ## Late votes
 
-Late votes, after the dispute already reached a qualified supermajority, must be rewarded (albeit a smaller amount) as well.
+Late votes, after the dispute already reached a ⅔ supermajority, must be rewarded (albeit a smaller amount) as well.
 These ones must be attached to the votes after a defined period of time after the result has reached
-the required qualified supermajority.
+the required ⅔ supermajority.
 
 ## Chain Selection / Grandpa
 
