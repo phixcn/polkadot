@@ -23,7 +23,7 @@ fishy at the very least). On the other hand, one must also consider, the validat
 to do so (i.e. it is controlled by a third party and wants to incur damage to itself).
 In either way, there are malicious validators around.
 As a consequence, all validators at the time of block backing, are being notified via broadcast of
-the first challenging vote.
+the first pair of backing and challenging vote.
 Validators that backed the candidate implicitly count as votes. Those validators are allowed to cast
 a regular vote (a non-backing vote) as well, but it is generally not in their interest to vote both sides, since that would
 advance the progress towards supermajority either way and have their bonds slashed.
@@ -68,5 +68,5 @@ Chain selection should be influenced by the chance of picking a chain that does 
 Hence removing the need to include the dispute resolution itself.
 This is only possible though, if the set of active heads contains such a fork.
 In Grandpa the Voting rule should be used to avoid finalizing chains that contain an open or negative shut (shut with supermajority that marks the block as invalid) dispute.
-In case all possible chains contains such a dispute, a TBD metric must be used to decide which fork to use or avoid finalization until one dispute resolves positive (the
+In case all possible chains contains such a dispute, a metric must be used to decide which fork to use or avoid finalization until one dispute resolves positive (the
 block is valid).
