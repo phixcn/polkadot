@@ -72,7 +72,7 @@ If the validator was also a backer of the block, validation and casting an addit
 
 If the count of votes pro or cons regarding the disputed block, reaches the required ⅔ supermajority (including the backing votes), the conclusion must be recorded on chain and the voters on the loosing and no-shows being slashed appropriately.
 
-If a block is found invalid by a dispute resolutio, it must be blacklisted to avoid resync.
+If a block is found invalid by a dispute resolution, it must be blacklisted to avoid resync or further build on that chain if other chains are available (to be detailed in the grandpa fork choice rule).
 
 If a vote is received, after the dispute is resolved, the vote shall still be recorded, albeit with less reward.
 
